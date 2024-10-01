@@ -37,9 +37,9 @@ body {
   box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-.cog-icon {
+.cog-icon, .icon-arrow {
   position: absolute;
-  top: 10px;
+  top: 24px;
   left: 24px;
   cursor: pointer;
   background: none;
@@ -82,15 +82,6 @@ body {
     transform: translateX(0);
   }
 }
-.icon-arrow {
-  position: absolute;
-  top: 10px;
-  left: 24px;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
 .icon-arrow:hover {
   animation: wiggle 1s ease-in-out;
 }
@@ -119,7 +110,7 @@ body {
   background: white;
   border-radius: 50px;
   border: 10px solid #aed9e0;
-  height: 320px;
+  height: 300px;
   width: 180px;
   color: #5e6472;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
@@ -129,10 +120,14 @@ body {
   background: #aed9e0;
   border-radius: 50px;
   border: 10px solid #ffa69e;
-  height: 320px;
+  height: 300px;
   width: 180px;
   color: #5e6472;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-body h2, .card-body .h2 {
+  line-height: 1.1;
 }
 
 .card-front,
@@ -145,6 +140,10 @@ body {
 
 .card-back {
   transform: rotateY(180deg);
+}
+
+.card-img {
+  max-height: 150px;
 }
 
 /*!
@@ -162,7 +161,7 @@ body {
   --bs-orange: #ffa69e;
   --bs-yellow: #faf3dd;
   --bs-green: #3d8965;
-  --bs-teal: #b8f2e6;
+  --bs-teal: #5db9a7;
   --bs-cyan: #4eb6ca;
   --bs-black: #000;
   --bs-white: #fff;
@@ -12008,6 +12007,35 @@ textarea.form-control-lg {
   width: 274px;
   line-height: 1;
   font-size: 56px;
+}
+
+/* Styling the checkbox input */
+.form-check-input {
+  width: 1.25em;
+  height: 1.25em;
+  border: 5px solid #5e6472; /* Border color */
+  background-color: white; /* Background color */
+  border-radius: 15px; /* Optional: Add some rounding to the checkbox */
+  appearance: none; /* Remove default styling */
+  display: inline-block;
+  position: relative;
+}
+
+/* Styling the checked state */
+.form-check-input:checked {
+  background-color: white; /* Background stays the same */
+  border-color: #5e6472; /* Keep the border */
+}
+
+/* Styling the checkmark */
+.form-check-input:checked::before {
+  content: "✔";
+  color: #5db9a7; /* Checkmark color */
+  font-size: 48px;
+  position: absolute;
+  top: -28px;
+  left: 0px;
+  transform: rotate(-10deg);
 }
 
 /*# sourceMappingURL=styles.css.map */
