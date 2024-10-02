@@ -15,6 +15,9 @@ export function renderChoresList(array) {
         cardFlip.classList.add('card-flip');
         cardFlip.onclick = function() {
             this.classList.toggle('flipped');
+            //play sound on card flip
+            const audio = new Audio('../../sounds/flip.wav');
+            audio.play();
             choreCompleted(chore);
             allDone();
 
@@ -39,12 +42,18 @@ export function renderChoresList(array) {
         const cardBack = document.createElement('div');
         cardBack.classList.add('card-back');
         const cardBodyBack = document.createElement('div');
-        cardBodyBack.classList.add('card-body', 'd-flex', 'align-items-center', 'justify-content-center');
+        cardBodyBack.classList.add('card-body', 'd-flex','flex-column', 'align-items-center', 'justify-content-between');
         const imgBack = document.createElement('img');
         imgBack.src = '../images/star.svg';
         imgBack.alt = 'a star';
-        imgBack.classList.add('m-0', 'p-0');
+        imgBack.classList.add('m-0', 'p-0', 'mt-2', 'mb-2');
         cardBodyBack.appendChild(imgBack);
+        const imgBack2 = document.createElement('img');
+        imgBack2.src = chore.image;
+        imgBack2.alt = chore.name;
+        imgBack2.classList.add('card-img', 'mb-2');
+        imgBack2.style.height = '100px';
+        cardBodyBack.appendChild(imgBack2);
         cardBack.appendChild(cardBodyBack);
         card.appendChild(cardFront);
         card.appendChild(cardBack);

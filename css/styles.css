@@ -26,7 +26,23 @@ body {
   max-width: 500px;
 }
 
-.btn-custom-pressed {
+.btn-star {
+  box-shadow: 8px 8px 0px lightslategrey;
+  background-color: #aed9e0;
+  color: #5e6472;
+  border-radius: 50px;
+  box-sizing: border-box;
+  width: 220px;
+  padding: 60px;
+  border: 10px solid #ffa69e;
+}
+
+.btn-star img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-custom-pressed, .btn-star-pressed {
   box-shadow: inset 8px 8px 0px lightslategrey;
 }
 
@@ -50,6 +66,15 @@ body {
   position: absolute;
   top: 24px;
   left: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.icon-arrow-right {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
   cursor: pointer;
   background: none;
   border: none;
@@ -91,7 +116,7 @@ body {
     transform: translateX(0);
   }
 }
-.icon-arrow:hover {
+.icon-arrow:hover, .icon-arrow-right:hover {
   animation: wiggle 1s ease-in-out;
 }
 
@@ -99,7 +124,7 @@ body {
 .card-flip {
   perspective: 1000px;
   width: 180px;
-  height: 320px;
+  height: 280px;
 }
 
 .card-inner {
@@ -119,7 +144,7 @@ body {
   background: white;
   border-radius: 50px;
   border: 10px solid #aed9e0;
-  height: 300px;
+  height: 280px;
   width: 180px;
   color: #5e6472;
   box-shadow: 6px 6px lightslategray;
@@ -129,7 +154,7 @@ body {
   background: #aed9e0;
   border-radius: 50px;
   border: 10px solid #ffa69e;
-  height: 300px;
+  height: 280px;
   width: 180px;
   color: #5e6472;
   box-shadow: 6px 6px lightslategray;
