@@ -50,9 +50,25 @@ body {
   max-width: 500px;
 }
 
-.btn-custom-pressed {
-  box-shadow: inset 8px 8px 0px  lightslategrey;
+.btn-star {
+  box-shadow: 8px 8px 0px lightslategrey;
+  background-color: $blue;
+  color: $secondary;
+  border-radius: 50px;
+  box-sizing: border-box;
+  width: 220px;
+  padding: 60px;
+  border: 10px solid $orange;
+}
 
+.btn-star img {
+  width: 100%;
+  height: auto;
+}
+
+
+.btn-custom-pressed, .btn-star-pressed {
+  box-shadow: inset 8px 8px 0px  lightslategrey;
 }
 
 .btn-number {
@@ -71,10 +87,19 @@ body {
   box-shadow: inset 4px 4px 0px lightslategray;
 }
 
-.cog-icon, .icon-arrow {
+.cog-icon, .icon-arrow{
   position: absolute;
   top: 24px;
   left: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.icon-arrow-right {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
   cursor: pointer;
   background: none;
   border: none;
@@ -118,7 +143,7 @@ body {
   }
 }
 
-.icon-arrow:hover {
+.icon-arrow:hover, .icon-arrow-right:hover {
   animation: wiggle 1s ease-in-out;
 }
 
@@ -126,7 +151,7 @@ body {
 .card-flip {
   perspective: 1000px;
   width: 180px;
-  height: 320px;
+  height: 280px;
 }
 
 
@@ -147,7 +172,7 @@ body {
   background: white;
   border-radius: 50px;
   border: 10px solid $blue;
-  height: 300px;
+  height: 280px;
   width: 180px;
   color: $secondary;
   box-shadow: 6px 6px  lightslategray;
@@ -157,7 +182,7 @@ body {
   background: $blue;
   border-radius: 50px;
   border: 10px solid $orange;
-  height: 300px;
+  height: 280px;
   width: 180px;
   color: $secondary;
   box-shadow: 6px 6px lightslategray;

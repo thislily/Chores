@@ -11,8 +11,10 @@ import { choreListContainer, displayChoresList } from "./render/choresList.mjs";
 import { setUsers } from "./UI/localUsers.mjs";
 import { choreOptionsForm, displayChoreOptions } from "./render/choreOptions.mjs";
 import { updateChoreSettings } from "./handlers/updateChoreSettings.mjs";
+import { videoContainer, renderRewardsPage } from "./render/rewardsPage.mjs";
 
 export const pressedButton = document.querySelectorAll(".btn-custom");
+export const starButton = document.querySelector(".btn-star");
 export const cogIcon = document.querySelector(".cog-icon");
 export const numberButtons = document.querySelectorAll(".btn-number");
 
@@ -56,5 +58,9 @@ if (choreOptionsForm) {
 
 if (localStorage.getItem('localUsers') === null) {
   setUsers();
+}
+
+if (videoContainer) {
+  renderRewardsPage();
 }
 
