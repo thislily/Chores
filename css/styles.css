@@ -1,24 +1,33 @@
 @charset "UTF-8";
 body {
-  background-color: #faf3dd !important;
   color: #5e6472;
 }
 
+.bg-yellow {
+  background-color: #faf3dd;
+}
+
+.bg-orange {
+  background-color: #ffa69e;
+}
+
+.bg-blue {
+  background-color: #aed9e0;
+}
+
 .btn-custom {
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 8px 8px 0px lightslategrey;
   background-color: white;
   color: #5e6472;
   border-radius: 50px;
   font-size: 96px;
-  border: 10px solid #aed9e0;
   box-sizing: border-box;
   width: 100%;
   max-width: 500px;
 }
 
 .btn-custom-pressed {
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.25);
-  background-color: #aed9e0;
+  box-shadow: inset 8px 8px 0px lightslategrey;
 }
 
 .btn-number {
@@ -29,12 +38,12 @@ body {
   border: none;
   background-color: white;
   color: #5e6472;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 0px lightslategray;
   padding-bottom: 8px;
 }
 
 .btn-number-pressed {
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 4px 4px 0px lightslategray;
 }
 
 .cog-icon, .icon-arrow {
@@ -113,7 +122,7 @@ body {
   height: 300px;
   width: 180px;
   color: #5e6472;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 6px 6px lightslategray;
 }
 
 .card-back .card-body {
@@ -123,7 +132,7 @@ body {
   height: 300px;
   width: 180px;
   color: #5e6472;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 6px 6px lightslategray;
 }
 
 .card-body h2, .card-body .h2 {
@@ -11993,7 +12002,7 @@ textarea.form-control-lg {
 }
 .modal-content {
   width: 500px;
-  background-color: #aed9e0;
+  background-color: #f7c1bc;
   color: #5e6472;
   border-radius: 50px;
 }

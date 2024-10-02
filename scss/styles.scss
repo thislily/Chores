@@ -24,25 +24,35 @@ $font-family-monospace: "belanosima", monospace;
 // My custom styles
 
 body {
-  background-color: $yellow !important;
   color: $secondary;
 }
 
+.bg-yellow {
+  background-color: $yellow;
+}
+
+.bg-orange {
+  background-color: $orange;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
 .btn-custom {
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 8px 8px 0px lightslategrey;
   background-color: white;
   color: $secondary;
   border-radius: 50px;
   font-size: 96px;
-  border: 10px solid $blue;
   box-sizing: border-box;
   width: 100%;
   max-width: 500px;
 }
 
 .btn-custom-pressed {
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.25);
-  background-color: $blue;
+  box-shadow: inset 8px 8px 0px  lightslategrey;
+
 }
 
 .btn-number {
@@ -53,12 +63,12 @@ body {
   border: none;
   background-color: white;
   color: $secondary;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 0px lightslategray;
   padding-bottom: 8px;
 }
 
 .btn-number-pressed {
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 4px 4px 0px lightslategray;
 }
 
 .cog-icon, .icon-arrow {
@@ -140,7 +150,7 @@ body {
   height: 300px;
   width: 180px;
   color: $secondary;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 6px 6px  lightslategray;
 }
 
 .card-back .card-body{
@@ -150,7 +160,7 @@ body {
   height: 300px;
   width: 180px;
   color: $secondary;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 6px 6px lightslategray;
 }
 
 .card-body h2{
@@ -184,7 +194,7 @@ body {
 
 .modal-content {
   width: 500px;
-  background-color: $blue;
+  background-color: #f7c1bc;
   color: $secondary;
   border-radius: 50px;
 }

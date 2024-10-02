@@ -23,6 +23,10 @@ if (pressedButton){
     button.addEventListener("mousedown", () => {
       button.classList.add("btn-custom-pressed");
     });
+
+    button.addEventListener("touch", () => {
+      button.classList.toggle("btn-custom-pressed");
+    });
   
     button.addEventListener("mouseup", () => {
       button.classList.remove("btn-custom-pressed");

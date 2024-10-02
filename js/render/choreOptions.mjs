@@ -1,96 +1,101 @@
-// create a checkbox for each chore in the choresArray and append it to the choreOptionsForm
 import { choresArray } from "../UI/choresArray.mjs";
 
-export const choreOptionsForm = document.getElementById('chore-options-form');
-export const choreListGroup = document.getElementById('chore-list-group');
+/**
+ * @module choresList.mjs
+ * @description This module contains the functions to render the chores list on the edit screen.
+ *
+ */
 
+export const choreOptionsForm = document.getElementById("chore-options-form");
+export const choreListGroup = document.getElementById("chore-list-group");
+
+// create a checkbox for each chore in the choresArray and append it to the choreOptionsForm
 export function renderChoreOptions(array) {
+  const name = document.getElementById("name");
+  name.style.fontSize = "96px";
+  name.innerText = window.location.search.split("=")[1];
 
-    const name  = document.getElementById('name');
-    name.style.fontSize = '96px';
-    name.innerText = window.location.search.split('=')[1];
+  const childButtons = document.querySelector(".child-buttons");
+  childButtons.classList.add("d-none");
+  childButtons.classList.remove("w-50");
 
-    const childButtons = document.querySelector('.child-buttons');
-    childButtons.classList.add('d-none');
-    childButtons.classList.remove('w-50');
+  const saveChangesButton = document.getElementById("save-changes-button");
+  saveChangesButton.classList.remove("d-none");
 
+  const backButton = document.getElementById("back-button");
+  //change href to go back to choose a child to edit
+  backButton.href = "/chore-list/edit/index.html";
 
-    const saveChangesButton = document.getElementById('save-changes-button');
-    saveChangesButton.classList.remove('d-none');
+  array.forEach((chore) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add(
+      "list-group-item",
+      "bg-transparent",
+      "border-0",
+      "fs-2"
+    );
 
-    const backButton = document.getElementById('back-button');
-    //change href to go back to choose a child to edit
-    backButton.href = '/chore-list/edit/index.html';
+    const input = document.createElement("input");
+    input.classList.add("form-check-input");
+    input.type = "checkbox";
+    input.value = "";
+    input.id = chore.name;
+    input.checked = true;
+    input.dataset.name = chore.name;
+    input.dataset.image = chore.image;
+    input.dataset.completed = chore.completed;
+    input.dataset.display = chore.display;
 
+    if (chore.display === false) {
+      input.checked = false;
+    }
 
+    const label = document.createElement("label");
+    label.classList.add("form-check-label", "ps-3", "pt-1", "text-secondary");
+    label.innerText = chore.name;
+    label.htmlFor = chore.name;
 
-    array.forEach(chore => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item', 'bg-transparent', 'border-0', 'fs-2');
-        
-        const input = document.createElement('input');
-        input.classList.add('form-check-input');
-        input.type = 'checkbox';
-        input.value = '';
-        input.id = chore.name;
-        input.checked = true;
-        input.dataset.name = chore.name;
-        input.dataset.image = chore.image;
-        input.dataset.completed = chore.completed;
-        input.dataset.display = chore.display;
-        
-        if (chore.display === false) {
-            input.checked = false;
-        }
-        
-        const label = document.createElement('label');
-        label.classList.add('form-check-label', 'ps-3', 'pt-1', 'text-secondary');
-        label.innerText = chore.name;
-        label.htmlFor = chore.name;
-        
-        listItem.appendChild(input);
-        listItem.appendChild(label);
-        choreListGroup.appendChild(listItem);
-    });
+    listItem.appendChild(input);
+    listItem.appendChild(label);
+    choreListGroup.appendChild(listItem);
+  });
 }
 
+
+// display the chore options for the selected user
 export function displayChoreOptions() {
-    // Get the query parameters from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const userName = urlParams.get('child');
-    console.log('User: ', userName);
-    
-    if (!userName) {
-        console.error('User not found in query string');
-        return;
-    }
+  // Get the query parameters from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("child");
+  console.log("User: ", userName);
 
-    // Get the localUsers from local storage
-    const localUsers = JSON.parse(localStorage.getItem('localUsers'));
+  if (!userName) {
+    console.error("User not found in query string");
+    return;
+  }
 
-    if (!localUsers) {
-        console.error('No users found in local storage');
-        return;
-    }
+  // Get the localUsers from local storage
+  const localUsers = JSON.parse(localStorage.getItem("localUsers"));
 
-    // Get the user object from the localUsers array
-    const user = localUsers.find(user => user.name === userName);
+  if (!localUsers) {
+    console.error("No users found in local storage");
+    return;
+  }
 
-    if (!user) {
-        console.error('User not found in local storage');
-        return;
-    }
+  // Get the user object from the localUsers array
+  const user = localUsers.find((user) => user.name === userName);
 
-    // Get the chores array from the user object
-    const userChoresArray = user.chores;
+  if (!user) {
+    console.error("User not found in local storage");
+    return;
+  }
 
-    // Render the chore options
-    renderChoreOptions(userChoresArray);
+  // Get the chores array from the user object
+  const userChoresArray = user.chores;
+
+  // Render the chore options
+  renderChoreOptions(userChoresArray);
 }
-
-
-
-
 
 /* <form action="submit">
 <div class="list-group bg-transparent mb-5">

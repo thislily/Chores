@@ -1,4 +1,6 @@
 import { choresArray } from '../UI/choresArray.mjs';
+import { allDone } from '../handlers/allDone.mjs';
+import { choreCompleted } from '../handlers/handleCardFlip.mjs';
 
 export const choreListContainer = document.getElementById('chore-list-container');
 
@@ -13,6 +15,9 @@ export function renderChoresList(array) {
         cardFlip.classList.add('card-flip');
         cardFlip.onclick = function() {
             this.classList.toggle('flipped');
+            choreCompleted(chore);
+            allDone();
+
         };
         const card = document.createElement('div');
         card.classList.add('card', 'border-0', 'card-inner');
@@ -46,6 +51,11 @@ export function renderChoresList(array) {
         cardFlip.appendChild(card);
         choreListContainer.appendChild(cardFlip);
 
+
+        //if the chore is completed, card should be viewed as flipped
+        if (chore.completed) {
+            cardFlip.classList.add('flipped');
+        }
 
         
     }
