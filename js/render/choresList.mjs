@@ -5,6 +5,10 @@ export const choreListContainer = document.getElementById('chore-list-container'
 export function renderChoresList(array) {
 
     array.forEach(chore => {
+        if (!chore.display) {
+            return;
+        } else {
+
         const cardFlip = document.createElement('div');
         cardFlip.classList.add('card-flip');
         cardFlip.onclick = function() {
@@ -42,12 +46,26 @@ export function renderChoresList(array) {
         cardFlip.appendChild(card);
         choreListContainer.appendChild(cardFlip);
 
+
         
+    }
     }
     );
 }
 
 export function displayChoresList() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userName = urlParams.get('child');
+    console.log('User: ', userName);
+    if (!userName) {
+        console.error('User not found in query string');
+        return;
+    }
+    localStorage.getItem('localUsers');
+    const userChores = JSON.parse(localStorage.getItem('localUsers')).find(user => user.name === userName);
+    const name  = document.getElementById('name');
+    name.textContent = userName;
+    const choresArray = userChores.chores;
     renderChoresList(choresArray);
 }
 

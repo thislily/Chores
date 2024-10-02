@@ -10,6 +10,7 @@ import {
 import { choreListContainer, displayChoresList } from "./render/choresList.mjs";
 import { setUsers } from "./UI/localUsers.mjs";
 import { choreOptionsForm, displayChoreOptions } from "./render/choreOptions.mjs";
+import { updateChoreSettings } from "./handlers/updateChoreSettings.mjs";
 
 export const pressedButton = document.querySelectorAll(".btn-custom");
 export const cogIcon = document.querySelector(".cog-icon");
@@ -46,6 +47,7 @@ if (choreListContainer) {
 
 if (choreOptionsForm) {
   displayChoreOptions();
+  updateChoreSettings();
 }
 
 if (localStorage.getItem('localUsers') === null) {

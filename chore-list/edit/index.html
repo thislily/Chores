@@ -28,12 +28,17 @@
     <div
       class="container-xxl mx-auto vh-100 d-flex flex-column justify-content-around align-items-center m-0 p-0"
     >
-      <h1 class="text-secondary my-3" id="name" style="font-size: 96px;">
-        Casper
+      <h1 class="text-secondary my-3" id="name" style="font-size: 48px;">Choose child to adjust settings
       </h1>
+                <!-- Choose child buttons -->
+        <div class="d-flex flex-column justify-content-center align-items-center child-buttons w-100 gap-5 pt-5">
+            <a href="/chore-list/edit/index.html?child=Casper" class="btn-custom text-center text-decoration-none w-50">Casper</a>
+            <a href="/chore-list/edit/index.html?child=Oliver" class="btn-custom text-center text-decoration-none w-50">Oliver</a>
+            
+        </div>
 
-      <!-- Chore Cards -->
       <div class="container-lg mx-auto d-flex justify-content-center">
+
         <form action="submit" id="chore-options-form" class="mb-5 text-center">
           <div
             class="list-group bg-transparent mb-5 d-flex flex-wrap justify-content-start align-items-start"
@@ -44,7 +49,7 @@
             <!-- Add more checkboxes here -->
           </div>
       
-          <button class="btn-custom fs-1 p-3 px-4 rounded-5" style="width: 50%;">Save Changes</button>
+          <button class="btn-custom fs-1 p-3 px-4 rounded-5 d-none" style="width: 50%;" id="save-changes-button">Save Changes</button>
         </form>
       </div>
       
@@ -52,7 +57,7 @@
 
       <!-- Button back arrow -->
 
-        <a href="../../index.html">
+        <a href="../../index.html" id="back-button">
             <img
             src="../../images/arrow-left.svg"
             alt="a back arrow"
