@@ -1,7 +1,13 @@
 import { choresArray } from "./choresArray.mjs";
 
-// for both Casper and Oliver, create a user and store their chorelist on local storage
+/**
+ * @module localUsers.mjs
+ * @description This file contains the localUsers array, which stores the users and their chores.
+ */
 
+
+
+// for both Casper and Oliver, create a user and store their chorelist on local storage
 export const localUsers = [
     {
         name: 'Casper',
@@ -14,7 +20,6 @@ export const localUsers = [
 ];
 
 // store the localUsers array in local storage
-
 export function setUsers () {
     if (localStorage.getItem('localUsers') === null) {
         localStorage.setItem('localUsers', JSON.stringify(localUsers));
