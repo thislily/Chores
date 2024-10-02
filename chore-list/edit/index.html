@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <!-- Link to JavaScript -->
+    <script type="module" src="../../js/app.mjs"></script>
+    <!-- Link to Bootstrap JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Chore Quest | Start</title>
+  </head>
+  <body class="">
+    <div
+      class="container-xxl mx-auto vh-100 d-flex flex-column justify-content-around align-items-center m-0 p-0"
+    >
+      <h1 class="text-secondary my-3" id="name" style="font-size: 48px;">Choose child to adjust settings
+      </h1>
+                <!-- Choose child buttons -->
+        <div class="d-flex flex-column justify-content-center align-items-center child-buttons w-100 gap-5 pt-5">
+            <a href="/chore-list/edit/index.html?child=Casper" class="btn-custom text-center text-decoration-none w-50">Casper</a>
+            <a href="/chore-list/edit/index.html?child=Oliver" class="btn-custom text-center text-decoration-none w-50">Oliver</a>
+            
+        </div>
+
+      <div class="container-lg mx-auto d-flex justify-content-center">
+
+        <form action="submit" id="chore-options-form" class="mb-5 text-center">
+          <div
+            class="list-group bg-transparent mb-5 d-flex flex-wrap justify-content-start align-items-start"
+            id="chore-list-group"
+            style="width: 600px; height: 70%;"
+          >
+
+            <!-- Add more checkboxes here -->
+          </div>
+      
+          <button class="btn-custom fs-1 p-3 px-4 rounded-5 d-none" style="width: 50%;" id="save-changes-button">Save Changes</button>
+        </form>
+      </div>
+      
+
+
+      <!-- Button back arrow -->
+
+        <a href="../../index.html" id="back-button">
+            <img
+            src="../../images/arrow-left.svg"
+            alt="a back arrow"
+            class="icon-arrow"
+            />
+        </a>
+
+  </body>
+</html>
