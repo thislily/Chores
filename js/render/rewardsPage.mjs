@@ -11,17 +11,13 @@ export function renderRewardsPage() {
     const video = document.createElement('iframe');
 
     if (userName === 'Oliver') {
-        video.src = 'https://www.youtube.com/embed/LDU_Txk06tM?si=NpDnQ4wnYNWipN3x';
+        video.src = 'https://www.youtube.com/embed/LDU_Txk06tM?si=NpDnQ4wnYNWipN3x?autoplay=1&controls=0';
     } else if (userName === 'Casper') {
-        video.src = 'https://www.youtube.com/embed/X9XK9SVvp40?si=aXPP0TMZS-9FWF4d';
+        video.src = 'https://www.youtube.com/embed/hdcTmpvDO0I?si=nZIxx0CTTcoPVGpX?autoplay=1&controls=0';
     }
-    video.width = '800px';
-    video.height = '500px';
+    video.width = '80%';
+    video.height = '560px';
     video.allow = 'autoplay;';
-    //video autoplays on load
-    video.autoplay = true;
-  
-
     video.allowFullscreen = true;
     video.style.border = 'none';
 
