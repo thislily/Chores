@@ -45,7 +45,6 @@ export function displayRandomNumbers() {
  * If the user presses the wrong numbers, they get feedback and after 3 wrong attempts, the modal is locked for 2 minutes
  * If the user presses the correct numbers, they are redirected to the settings page 
  */
-
 export function unlockSettings() {
   let correctKey = writtenNumbers.dataset.value;
   let key = "";
@@ -53,6 +52,7 @@ export function unlockSettings() {
   let isLocked = false; // To lock the modal after 3 failed attempts
 
   numberButtons.forEach((button) => {
+    // Mouse events
     button.addEventListener("mousedown", () => {
       if (isLocked) return; // If locked, don't allow interaction
 
@@ -100,5 +100,48 @@ export function unlockSettings() {
         }
       }
     });
+
+    // Touch events for visual button press
+    button.addEventListener("touchstart", () => {
+      if (isLocked) return; // If locked, don't allow interaction
+
+      button.classList.add("btn-number-pressed");
+      key += button.value;
+    });
+
+    button.addEventListener("touchend", () => {
+      button.classList.remove("btn-number-pressed");
+      if (isLocked) return;
+
+      // Same logic as mouseup for touch
+      if (key.length === correctKey.length) {
+        if (key === correctKey) {
+          window.location.href = "chore-list/edit/index.html";
+        } else {
+          attempts++;
+          key = ""; // Reset key on wrong input
+          settingsModal.classList.add("wiggle");
+          setTimeout(() => {
+            settingsModal.classList.remove("wiggle");
+          }, 200);
+
+          if (attempts === 3) {
+            settingsWarning.innerText =
+              "Too many attempts. Please try again in 2 minutes.";
+            isLocked = true;
+            key = "";
+            setTimeout(() => {
+              isLocked = false;
+              attempts = 0;
+              settingsWarning.innerText = "";
+              displayRandomNumbers();
+            }, 120000); // 2 minutes lock
+          } else {
+            settingsWarning.innerText = "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
+          }
+        }
+      }
+    });
   });
 }
+

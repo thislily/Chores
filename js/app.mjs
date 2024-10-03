@@ -22,19 +22,26 @@ export const numberButtons = document.querySelectorAll(".btn-number");
 // Button changes on mouse down and mouse up
 if (pressedButton){
   pressedButton.forEach((button) => {
+    // Mouse events
     button.addEventListener("mousedown", () => {
       button.classList.add("btn-custom-pressed");
     });
 
-    button.addEventListener("touch", () => {
-      button.classList.toggle("btn-custom-pressed");
-    });
-  
     button.addEventListener("mouseup", () => {
+      button.classList.remove("btn-custom-pressed");
+    });
+
+    // Touch events
+    button.addEventListener("touchstart", () => {
+      button.classList.add("btn-custom-pressed");
+    });
+
+    button.addEventListener("touchend", () => {
       button.classList.remove("btn-custom-pressed");
     });
   });
 }
+
 
 
 // Cog icon changes on click
