@@ -62,6 +62,8 @@ export function unlockSettings() {
 
     button.addEventListener("mouseup", () => {
       button.classList.remove("btn-number-pressed");
+      const audio = new Audio("../sounds/button-press.mp3");
+      audio.play();
       if (isLocked) return;
 
       // Check if key length matches the correctKey length

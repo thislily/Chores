@@ -26,6 +26,8 @@ export function allDone() {
             // Mouse events
             starButton.addEventListener("mousedown", () => {
               starButton.classList.add("btn-star-pressed");
+              const audio = new Audio("../../sounds/button-press.mp3");
+              audio.play();
             });
           
             starButton.addEventListener("mouseup", () => {
@@ -40,6 +42,8 @@ export function allDone() {
             // Touch events for touch devices
             starButton.addEventListener("touchstart", () => {
               starButton.classList.add("btn-star-pressed");
+              const audio = new Audio("../../sounds/button-press.mp3");
+              audio.play();
             });
 
             starButton.addEventListener("touchend", () => {
