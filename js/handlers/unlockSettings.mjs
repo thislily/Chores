@@ -3,7 +3,6 @@
  * @description This module contains the functions to unlock the settings modal by pressing the correct numbers in the correct order.
  */
 
-
 export const writtenNumbers = document.getElementById("written-numbers");
 export const numberButtons = document.querySelectorAll(".btn-number");
 export const settingsModal = document.getElementById("settings-modal");
@@ -17,7 +16,7 @@ export const writtenNumbersArray = [
   { text: "Six", value: "6" },
   { text: "Seven", value: "7" },
   { text: "Eight", value: "8" },
-  { text: "Nine", value: "9" }
+  { text: "Nine", value: "9" },
 ];
 
 /**
@@ -43,14 +42,14 @@ export function displayRandomNumbers() {
 /**
  * Unlock the settings page by pressing the correct numbers in the correct order
  * If the user presses the wrong numbers, they get feedback and after 3 wrong attempts, the modal is locked for 2 minutes
- * If the user presses the correct numbers, they are redirected to the settings page 
+ * If the user presses the correct numbers, they are redirected to the settings page
  */
 export function unlockSettings() {
   let correctKey = writtenNumbers.dataset.value;
   let key = "";
   let attempts = 0;
   let isLocked = false; // To lock the modal after 3 failed attempts
-  let isTouch = false;  // Flag to detect touch
+  let isTouch = false; // Flag to detect touch
 
   numberButtons.forEach((button) => {
     // Mouse events
@@ -71,7 +70,13 @@ export function unlockSettings() {
       // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
-          window.location.href = "chore-list/edit/index.html";
+          const audio = new Audio("../../sounds/success.mp3");
+          audio.play();
+          // after the success sound, wait  seconds and redirect to the settings page
+          // Wait for the audio to finish before redirecting
+          audio.addEventListener("ended", () => {
+              window.location.href = "chore-list/edit/index.html"; // Wait 1 second after the audio ends before redirecting (optional)
+          });
         } else {
           attempts++;
           key = ""; // Reset key on wrong input
@@ -98,7 +103,14 @@ export function unlockSettings() {
       // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
-          window.location.href = "chore-list/edit/index.html";
+          const audio = new Audio("../../sounds/success.mp3");
+          audio.play();
+          // after the success sound, wait  seconds and redirect to the settings page
+          // Wait for the audio to finish before redirecting
+          audio.addEventListener("ended", () => {
+              window.location.href = "chore-list/edit/index.html";
+          });
+
         } else {
           attempts++;
           key = ""; // Reset key on wrong input
@@ -131,7 +143,8 @@ export function unlockSettings() {
           displayRandomNumbers();
         }, 120000); // 2 minutes lock
       } else {
-        settingsWarning.innerText = "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
+        settingsWarning.innerText =
+          "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
       }
     }
   });
