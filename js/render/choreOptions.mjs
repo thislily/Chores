@@ -90,11 +90,9 @@ export function displayChoreOptions() {
     return;
   }
 
-  // Get the chores array from the user object
-  const userChoresArray = user.chores;
 
   // Render the chore options
-  renderChoreOptions(userChoresArray);
+  renderChoreOptions(choresArray);
 }
 
 /* <form action="submit">
