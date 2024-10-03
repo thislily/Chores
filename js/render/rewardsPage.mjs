@@ -15,8 +15,8 @@ export function renderRewardsPage() {
     } else if (userName === 'Casper') {
         video.src = 'https://www.youtube.com/embed/X9XK9SVvp40?si=aXPP0TMZS-9FWF4d';
     }
-    video.width = '900px';
-    video.height = '600px';
+    video.width = '800px';
+    video.height = '500px';
     video.allow = 'autoplay;';
     //video autoplays on load
     video.autoplay = true;
@@ -36,7 +36,7 @@ export function renderRewardsPage() {
         chore.completed = false;
     });
     localStorage.setItem('localUsers', JSON.stringify(localUsers));
-    
+
 }
 
 

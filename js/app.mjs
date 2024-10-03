@@ -25,19 +25,25 @@ if (pressedButton){
     // Mouse events
     button.addEventListener("mousedown", () => {
       button.classList.add("btn-custom-pressed");
+      const audio = new Audio("../sounds/button-press.mp3");
+      audio.play();
     });
 
     button.addEventListener("mouseup", () => {
       button.classList.remove("btn-custom-pressed");
+
     });
 
     // Touch events
     button.addEventListener("touchstart", () => {
       button.classList.add("btn-custom-pressed");
+      const audio = new Audio("../sounds/button-press.mp3");
+      audio.play();
     });
 
     button.addEventListener("touchend", () => {
       button.classList.remove("btn-custom-pressed");
+
     });
   });
 }
