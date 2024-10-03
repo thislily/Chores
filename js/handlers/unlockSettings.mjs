@@ -50,64 +50,44 @@ export function unlockSettings() {
   let key = "";
   let attempts = 0;
   let isLocked = false; // To lock the modal after 3 failed attempts
+  let isTouch = false;  // Flag to detect touch
 
   numberButtons.forEach((button) => {
     // Mouse events
-    button.addEventListener("mousedown", () => {
-      if (isLocked) return; // If locked, don't allow interaction
+    button.addEventListener("mousedown", (event) => {
+      if (isLocked || isTouch) return; // Skip mouse event if it was triggered by a touch
 
       button.classList.add("btn-number-pressed");
       key += button.value;
     });
 
     button.addEventListener("mouseup", () => {
+      if (isLocked || isTouch) return; // Skip mouse event if it was triggered by a touch
+
       button.classList.remove("btn-number-pressed");
       const audio = new Audio("../sounds/button-press.mp3");
       audio.play();
-      if (isLocked) return;
 
       // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
-          // If the key is correct, redirect to settings page
           window.location.href = "chore-list/edit/index.html";
         } else {
           attempts++;
           key = ""; // Reset key on wrong input
-
-          // Wiggle and give feedback
-          settingsModal.classList.add("wiggle");
-          setTimeout(() => {
-            settingsModal.classList.remove("wiggle");
-          }, 200);
-
-          if (attempts === 3) {
-            // After 3 wrong attempts, lock the modal
-            settingsWarning.innerText =
-              "Too many attempts. Please try again in 2 minutes.";
-            isLocked = true;
-            key = ""; // Clear the key after 3 attempts
-
-            // Lock the modal for 2 minutes
-            setTimeout(() => {
-              isLocked = false;
-              attempts = 0;
-              settingsWarning.innerText = "";
-              displayRandomNumbers(); // Optionally reset the numbers
-            }, 120000); // 2 minutes lock
-          } else {
-            // For wrong attempts < 3, give an error message
-            settingsWarning.innerText = "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
-          }
+          showFeedback();
         }
       }
     });
 
-    // Touch events for visual button press
+    // Touch events
     button.addEventListener("touchstart", () => {
-      if (isLocked) return; // If locked, don't allow interaction
+      if (isLocked) return; // Skip interaction if locked
 
+      isTouch = true; // Set the touch flag
       button.classList.add("btn-number-pressed");
+      const audio = new Audio("../sounds/button-press.mp3");
+      audio.play();
       key += button.value;
     });
 
@@ -115,35 +95,44 @@ export function unlockSettings() {
       button.classList.remove("btn-number-pressed");
       if (isLocked) return;
 
-      // Same logic as mouseup for touch
+      // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
           window.location.href = "chore-list/edit/index.html";
         } else {
           attempts++;
           key = ""; // Reset key on wrong input
-          settingsModal.classList.add("wiggle");
-          setTimeout(() => {
-            settingsModal.classList.remove("wiggle");
-          }, 200);
-
-          if (attempts === 3) {
-            settingsWarning.innerText =
-              "Too many attempts. Please try again in 2 minutes.";
-            isLocked = true;
-            key = "";
-            setTimeout(() => {
-              isLocked = false;
-              attempts = 0;
-              settingsWarning.innerText = "";
-              displayRandomNumbers();
-            }, 120000); // 2 minutes lock
-          } else {
-            settingsWarning.innerText = "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
-          }
+          showFeedback();
         }
       }
+
+      // Reset the isTouch flag after 300ms to allow future mouse events
+      setTimeout(() => {
+        isTouch = false;
+      }, 300);
     });
+
+    function showFeedback() {
+      settingsModal.classList.add("wiggle");
+      setTimeout(() => {
+        settingsModal.classList.remove("wiggle");
+      }, 200);
+
+      if (attempts === 3) {
+        settingsWarning.innerText =
+          "Too many attempts. Please try again in 2 minutes.";
+        isLocked = true;
+        key = ""; // Clear the key after 3 attempts
+
+        setTimeout(() => {
+          isLocked = false;
+          attempts = 0;
+          settingsWarning.innerText = "";
+          displayRandomNumbers();
+        }, 120000); // 2 minutes lock
+      } else {
+        settingsWarning.innerText = "Incorrect numbers, you have " + (3 - attempts) + " attempts left.";
+      }
+    }
   });
 }
-
