@@ -1,6 +1,7 @@
 //check if all chores in local storage are completed, and if so, display a message
 
 import { choreListContainer } from "../render/choresList.mjs";
+import { checkTimeOfDay } from "../UI/checkTimeOfDay.mjs";
 
 export function allDone() {
     const localUsers = JSON.parse(localStorage.getItem('localUsers'));
@@ -8,12 +9,12 @@ export function allDone() {
     const userName = urlParams.get('child');
     const user = localUsers.find(user => user.name === userName);
 
-    // List of all chores that are set to display: true
-    const allChores = user.chores.filter(chore => chore.display === true);
-    const completedChores = allChores.filter(chore => chore.completed);
+    // use checkTimeOfDay and if am List of all chores from choresAM that are set to display: true, or if pm List of all chores from choresPM that are set to display: true
+    const allChores = checkTimeOfDay() === 'morning' ? user.choresAM.filter(chore => chore.display) : user.choresPM.filter(chore => chore.display);
+    const completedChores = checkTimeOfDay() === 'morning' ? user.choresAM.filter(chore => chore.display && chore.completed) : user.choresPM.filter(chore => chore.display && chore.completed);
 
     if (completedChores.length === allChores.length) {
-        console.log('All chores are done!');
+
         const successAudio = new Audio('../../sounds/success.mp3');
         choreListContainer.innerHTML = '';
 

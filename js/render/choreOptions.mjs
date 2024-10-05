@@ -1,4 +1,4 @@
-import { choresArray } from "../UI/choresArray.mjs";
+import { choresArrayPM, choresArrayAM } from "../UI/choresArray.mjs";
 
 /**
  * @module choresList.mjs
@@ -8,9 +8,11 @@ import { choresArray } from "../UI/choresArray.mjs";
 
 export const choreOptionsForm = document.getElementById("chore-options-form");
 export const choreListGroup = document.getElementById("chore-list-group");
+export const chooseAmOrPm = document.getElementById("choose-am-or-pm");
 
-// create a checkbox for each chore in the choresArray and append it to the choreOptionsForm
+// create a checkbox for each chore in the choresArrays and append it to the choreOptionsForm
 export function renderChoreOptions(array) {
+  choreListGroup.innerHTML = "";
   const name = document.getElementById("name");
   name.style.fontSize = "96px";
   name.innerText = window.location.search.split("=")[1];
@@ -45,6 +47,7 @@ export function renderChoreOptions(array) {
     input.dataset.image = chore.image;
     input.dataset.completed = chore.completed;
     input.dataset.display = chore.display;
+    input.dataset.when = chore.when;
 
     if (chore.display === false) {
       input.checked = false;
@@ -61,13 +64,11 @@ export function renderChoreOptions(array) {
   });
 }
 
-
 // display the chore options for the selected user
 export function displayChoreOptions() {
   // Get the query parameters from the URL
   const urlParams = new URLSearchParams(window.location.search);
   const userName = urlParams.get("child");
-  console.log("User: ", userName);
 
   if (!userName) {
     console.error("User not found in query string");
@@ -90,9 +91,17 @@ export function displayChoreOptions() {
     return;
   }
 
+  chooseAmOrPm.classList.remove("d-none");
+  chooseAmOrPm.classList.add("d-flex");
 
-  // Render the chore options
-  renderChoreOptions(choresArray);
+  const morning = document.getElementById("morning");
+
+  // Render the chore options based on the updated localStorage data
+  if (morning.classList.contains("btn-AMPM-pressed")) {
+    renderChoreOptions(user.choresAM); // This should now render updated AM chores from local storage
+  } else {
+    renderChoreOptions(user.choresPM); // This should now render updated PM chores from local storage
+  }
 }
 
 /* <form action="submit">
