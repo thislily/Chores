@@ -70,6 +70,7 @@ export function unlockSettings() {
       // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
+          settingsWarning.innerText = "Correct numbers, just a second!";
           const audio = new Audio("../../sounds/success.mp3");
           audio.play();
           // after the success sound, wait  seconds and redirect to the settings page
@@ -103,6 +104,7 @@ export function unlockSettings() {
       // Check if key length matches the correctKey length
       if (key.length === correctKey.length) {
         if (key === correctKey) {
+          settingsWarning.innerText = "Correct numbers, just a second!";
           const audio = new Audio("../../sounds/success.mp3");
           audio.play();
           // after the success sound, wait  seconds and redirect to the settings page

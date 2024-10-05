@@ -1,4 +1,4 @@
-import { choresArray } from "./choresArray.mjs";
+import { choresArrayAM, choresArrayPM } from "./choresArray.mjs";
 
 /**
  * @module localUsers.mjs
@@ -11,11 +11,13 @@ import { choresArray } from "./choresArray.mjs";
 export const localUsers = [
     {
         name: 'Casper',
-        chores: choresArray
+        choresAM: choresArrayAM,
+        choresPM: choresArrayPM
     },
     {
         name: 'Oliver',
-        chores: choresArray
+        choresAM: choresArrayAM,
+        choresPM: choresArrayPM
     }
 ];
 
@@ -23,7 +25,6 @@ export const localUsers = [
 export function setUsers () {
     if (localStorage.getItem('localUsers') === null) {
         localStorage.setItem('localUsers', JSON.stringify(localUsers));
-        console.log('Users stored in local storage: ', localStorage.getItem('localUsers'));
     }
 };
 

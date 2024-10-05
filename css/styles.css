@@ -26,6 +26,15 @@ body {
   max-width: 500px;
 }
 
+.btn-AMPM {
+  box-shadow: 8px 8px 0px lightslategrey;
+  background-color: white;
+  color: #5e6472;
+  border-radius: 50px;
+  font-size: 56px;
+  box-sizing: border-box;
+}
+
 .btn-star {
   box-shadow: 8px 8px 0px lightslategrey;
   background-color: #aed9e0;
@@ -42,8 +51,12 @@ body {
   height: auto;
 }
 
-.btn-custom-pressed, .btn-star-pressed {
+.btn-custom-pressed, .btn-star-pressed, .btn-AMPM-pressed {
   box-shadow: inset 8px 8px 0px lightslategrey;
+}
+
+.btn-AMPM-pressed {
+  background-color: #ffa69e;
 }
 
 .btn-number {

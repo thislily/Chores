@@ -1,3 +1,5 @@
+import { checkTimeOfDay } from "../UI/checkTimeOfDay.mjs";
+
 export const videoContainer = document.getElementById('video-container');
 
 export function renderRewardsPage() {
@@ -28,9 +30,12 @@ export function renderRewardsPage() {
 
     const localUsers = JSON.parse(localStorage.getItem('localUsers'));
     const user = localUsers.find((user) => user.name === userName);
-    user.chores.forEach((chore) => {
-        chore.completed = false;
-    });
+    if (checkTimeOfDay() === 'morning') {
+        user.choresAM.forEach(chore => chore.completed = false);
+    } else if (checkTimeOfDay() === 'evening') {
+        user.choresPM.forEach(chore => chore.completed = false);
+        user.choresAM.forEach(chore => chore.completed = false);
+    }
     localStorage.setItem('localUsers', JSON.stringify(localUsers));
 
 }

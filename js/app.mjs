@@ -12,12 +12,12 @@ import { setUsers } from "./UI/localUsers.mjs";
 import { choreOptionsForm, displayChoreOptions } from "./render/choreOptions.mjs";
 import { updateChoreSettings } from "./handlers/updateChoreSettings.mjs";
 import { videoContainer, renderRewardsPage } from "./render/rewardsPage.mjs";
+import { handleAMorPMButtons } from "./UI/AMorPMButtons.mjs";
 
 export const pressedButton = document.querySelectorAll(".btn-custom");
 export const starButton = document.querySelector(".btn-star");
 export const cogIcon = document.querySelector(".cog-icon");
 export const numberButtons = document.querySelectorAll(".btn-number");
-
 
 // Button changes on mouse down and mouse up
 if (pressedButton){
@@ -65,6 +65,7 @@ if (choreListContainer) {
 }
 
 if (choreOptionsForm) {
+  handleAMorPMButtons();
   displayChoreOptions();
   updateChoreSettings();
 }

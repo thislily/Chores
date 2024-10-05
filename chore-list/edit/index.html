@@ -26,30 +26,36 @@
   </head>
   <body class="bg-blue">
     <div
-      class="container-xxl mx-auto vh-100 d-flex flex-column justify-content-around align-items-center m-0 p-0"
+      class="container-xxl mx-auto d-flex flex-column justify-content-around align-items-center m-0 p-0"
     >
       <h1 class="text-secondary my-3" id="name" style="font-size: 48px;">Choose child to adjust settings
       </h1>
                 <!-- Choose child buttons -->
-        <div class="d-flex flex-column justify-content-center align-items-center child-buttons w-100 gap-5 pt-5">
+        <div class="d-flex flex-column justify-content-center align-items-center child-buttons w-100 gap-5 pt-5 mb-3">
             <a href="/chore-list/edit/index.html?child=Casper" class="btn-custom text-center text-decoration-none w-50">Casper</a>
             <a href="/chore-list/edit/index.html?child=Oliver" class="btn-custom text-center text-decoration-none w-50">Oliver</a>
-            
+        </div>
+    
+
+      <div class="container-lg mx-auto d-flex flex-column justify-content-center align-items-center">
+
+        <form action="submit" id="chore-options-form" class="mb-3 text-center">
+              <!-- Choose AM or PM buttons -->
+        <div class="d-none justify-content-center align-items-center child-buttons gap-5 py-3 " id="choose-am-or-pm">
+          <button class="btn-AMPM fs-1 p-3 px-4 rounded-5 border-0 btn-AMPM-pressed" id="morning">Morning</button>
+          <button class="btn-AMPM fs-1 p-3 px-4 rounded-5 border-0" id="evening">Evening</button>
         </div>
 
-      <div class="container-lg mx-auto d-flex justify-content-center">
-
-        <form action="submit" id="chore-options-form" class="mb-5 text-center">
           <div
-            class="list-group bg-transparent mb-5 d-flex flex-wrap justify-content-start align-items-start"
+            class="list-group bg-transparent my-3 d-flex flex-wrap justify-content-start align-items-start"
             id="chore-list-group"
-            style="width: 600px; height: 70%;"
+            style="width: 640px; height: 350px; overflow-y: auto;"
           >
 
             <!-- Add more checkboxes here -->
           </div>
       
-          <button class="btn-custom fs-1 p-3 px-4 rounded-5 d-none border-0" style="width: 50%;" id="save-changes-button">Save Changes</button>
+          <button class="btn-custom fs-1 p-3 px-4 rounded-5 d-none border-0" style="width: 300px;" id="save-changes-button">Save Changes</button>
         </form>
       </div>
       
