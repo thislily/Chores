@@ -17,5 +17,5 @@ export const choresArrayPM = [
   { name: "Put on pyjamas", image: "../images/chores/pyjamas.svg", when:'pm', completed: false, display: true },
   { name: "Brush teeth", image: "../images/chores/brush-teeth.svg", when:'pm', completed: false, display: true },
   { name: "Go to the toilet", image: "../images/chores/toilet.svg", when:'pm', completed: false, display: true },
-  { name: "Go to bed", image: "../images/chores/get-dressed.svg", when:'pm', completed: false, display: true }
+  { name: "Go to bed", image: "../images/chores/go-to-bed.svg", when:'pm', completed: false, display: true }
 ];
