@@ -13,9 +13,9 @@ export function renderRewardsPage() {
     const video = document.createElement('iframe');
 
     if (userName === 'Oliver') {
-        video.src = 'https://www.youtube.com/embed/LDU_Txk06tM?si=NpDnQ4wnYNWipN3x?autoplay=1&controls=0';
+        video.src = 'https://www.youtube.com/embed/ROX1SN5Op8A?si=Iv7RcZqK8IRzMu84?autoplay=1&controls=0';
     } else if (userName === 'Casper') {
-        video.src = 'https://www.youtube.com/embed/4iOB5eCb8Ac?si=yt67IiECkbDwefP5?autoplay=1&controls=0';
+        video.src = 'https://www.youtube.com/embed/uwT6ziRxnVU?si=rRCg7pXJaXwRvrtB?autoplay=1&controls=0';
     }
     video.width = '80%';
     video.height = '560px';
