@@ -15,7 +15,7 @@ export function renderRewardsPage() {
     if (userName === 'Oliver') {
         video.src = 'https://www.youtube.com/embed/LDU_Txk06tM?si=NpDnQ4wnYNWipN3x?autoplay=1&controls=0';
     } else if (userName === 'Casper') {
-        video.src = 'https://www.youtube.com/embed/k85mRPqvMbE?si=DEb22hDiUqAqh8CU?autoplay=1&controls=0';
+        video.src = 'https://www.youtube.com/embed/4iOB5eCb8Ac?si=yt67IiECkbDwefP5?autoplay=1&controls=0';
     }
     video.width = '80%';
     video.height = '560px';
