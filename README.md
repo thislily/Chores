@@ -1,80 +1,52 @@
-# ChoreQuest
+# Mini Routini
 
-**ChoreQuest** is a small web app (who needs a better name), designed to help kids (currently just mine) complete their household chores in a fun and interactive way. This app provides a list of daily tasks as cards that can be flipped as completed, helping kids stay on track with their responsibilities.
+![Mini Routini Screenshot](images/screenshot.jpg)
 
-## Live Demo
+## 🚀 About the Project
+Mini Routini is a small web app designed to help kids complete their household chores in a fun and interactive way. The app provides a list of daily tasks as cards that can be flipped as completed, helping kids stay on track with their responsibilities. It is designed with simplicity and child-friendliness in mind.
 
-You can view the live version of the app [here](https://chorequest.netlify.app/).
+## 🎨 Features
+- 🌞 **Morning and Evening Chore Lists** – Separate lists for structured routines.
+- 💾 **Local Storage** – Saves progress so kids can continue where they left off.
+- 🎨 **Simple UI** – Child-friendly interface for easy navigation.
+- 🔒 **Locked Settings** – Prevents unauthorized changes by children.
+- 📏 **Optimized for Tablets & Desktops** – Designed for screens kids actually use.
+- 🎵 **Reward Page** – Unlocks a favorite YouTube video upon task completion.
 
-![ChoreQuest Screenshot](images/screenshot.jpg)
+## 🌍 Live Demo
+Visit the live site: [Mini Routini](https://www.miniroutini.com/)
 
-## Features
+## 🛠️ Tech Stack
+- **Frontend**: HTML5, CSS3 (Sass), JavaScript
+- **Frameworks**: Bootstrap
+- **Storage**: Local Storage
+- **Development Tools**: Node.js, npm
+- **Hosting**: Netlify
 
-- **Morning and Evening Chore Lists**: Separate lists of chores for morning and evening routines.
-- **Local Storage**: Saves chore progress so kids can continue where they left off.
-- **Simple UI**: Child-friendly interface designed for easy navigation.
-- **Locked Settings**: Settings are childlocked the prevent my kids from cheating.
-- **Not Very Responsive Design**: Works on desktops and tablets, toddlers don't have phones.
-- **Reward Page**: A youtube video of a song they like is provided when thet complete their tasks.
+## 📦 Installation & Setup
+To run this project locally, follow these steps:
 
-## Getting Started
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/thislily/MiniRoutini.git
+cd MiniRoutini
+```
 
-### Prerequisites
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-To run the app locally, you'll need:
+### 3️⃣ Start Development Mode
+```bash
+npm run watch
+```
 
-- Node.js installed (for development dependencies)
-- A modern web browser (Chrome, Firefox, etc.)
-- Basic knowledge of HTML, CSS, JavaScript, and Sass
+## 📬 Contact
+For any inquiries or feedback, feel free to reach out:
+📧 [lilywatson.dev@gmail.com](mailto:lilywatson.dev@gmail.com)
 
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/thislily/ChoreQuest.git
-
-2. Navigate to the project directory:
-    ```bash
-    cd ChoreQuest
-
-3. Install the dependencies:
-    ```bash
-    npm install
-
-4. To start the app with live reloading and Sass compilation, run:
-    ```bash
-    npm run watch
-
-
-## Tech Stack
-
-- **HTML5**: For the structure of the app.
-- **CSS3** (with **Sass**): For styling and responsive design.
-- **JavaScript**: Core functionality.
-- **Bootstrap**: For UI components.
-- **Local Storage**: To save and persist chore progress.
-- **Node.js & npm**: For managing dependencies and running development scripts.
-- **Netlify**: For hosting the live demo.
-
-## Development Dependencies
-
-- **Sass**: For CSS pre-processing.
-- **ESLint**: For linting JavaScript.
-- **Prettier**: For code formatting.
-
-## Author
-
-Created by **Lily Watson**. You can reach me at:
-
-- **GitHub**: [thislily](https://github.com/thislily)
-- **Email**: lilywatson.dev@gmail.com
+---
+**Made by Lily Watson**
 
 
-## Contributing
-
-If you would like to contribute, feel free to open an issue or submit a pull request. You can find the issue tracker [here](https://github.com/thislily/ChoreQuest/issues).
-
-## Acknowledgments
-
-Thanks to my kids for inspiring the creation of this app!
